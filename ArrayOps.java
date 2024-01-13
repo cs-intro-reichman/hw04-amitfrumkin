@@ -1,12 +1,13 @@
 public class ArrayOps {
     public static void main(String[] args) {
         
-        int [] array = {2,8,3,7} ; 
+        int [] array =  {1, 3, 2} ; 
         int [] array1 =  {2, 2, 3, 7, 8, 3, 2} ; 
         int [] array2= {8, 2, 7, 7,3} ; 
         
         System.out.println(secondMaxValue(array)); //test secondMaxValue 
-        System.out.println(containsTheSameElements(array1,array2));
+        /*System.out.println(containsTheSameElements(array1,array2));*/
+        System.out.println(isSorted(array));
     }
         
     public static int sum(int[] arr) {
@@ -128,7 +129,22 @@ public class ArrayOps {
     }
 
     public static boolean isSorted(int [] array) {
-        // Write your code here:
+
+        int increasingCounter = 0;
+        int decreasingCounter = 0;
+
+        for (int i = 1; i < array.length; i++){
+            if(array[i-1] <= array[i]){
+                increasingCounter++;
+            }else if(array[i]>= array[i]){
+                decreasingCounter++;
+
+            }
+        }
+        if(increasingCounter ==  (array.length - 1) || decreasingCounter == (array.length - 1) ) {
+            return true;
+        }
+         
         return false;
     }
 
