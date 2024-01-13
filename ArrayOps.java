@@ -1,11 +1,14 @@
 public class ArrayOps {
     public static void main(String[] args) {
         
-        int [] array = {1, -2, 3, -4, 5} ; 
+        int [] array = {2,8,3,7} ; 
+        int [] array1 =  {2, 2, 3, 7, 8, 3, 2} ; 
+        int [] array2= {8, 2, 7, 7,3} ; 
         
         System.out.println(secondMaxValue(array)); //test secondMaxValue 
-        
+        System.out.println(containsTheSameElements(array1,array2));
     }
+        
     public static int sum(int[] arr) {
 		int sum = 0;
 		for (int i = 0; i < arr.length; i++) {
@@ -41,7 +44,8 @@ public class ArrayOps {
         return max ;
     }
 
-    public static int secondMaxValue(int [] array) {    
+        public static int secondMaxValue(int [] array) {    
+
         int maxCounter = 0 ;
         int maximum = maxValue(array);
         for (int i = 0; i < array.length; i++){
@@ -59,16 +63,68 @@ public class ArrayOps {
                 j++;
             }
         }
-       
-       
-        int secondMaxValue = maxValue(withoutMax) ; 
         
+        maxCounter = 0;
+        int secondMaxValue = 0 ; 
+         for (int i = 0 ; i < array.length; i++){
+           if(array[i] == maximum) {
+            maxCounter++;
+           }
+         }
+        if(maxCounter>1){
+            secondMaxValue = maximum ;
+        }else{
+            secondMaxValue= maxValue(withoutMax) ; 
+        }
         return secondMaxValue ;
     }
 
+    /*public static int[] differntInts(int [] array){
+
+        int[] freq = new int[10];
+ 
+        for (int i = 0 ; i < array.length  ; i++){
+            for (int j = 0 ; j < 10  ; j++){
+                if(array[i] == j){
+                   freq[j]++ ;  
+                } 
+            }
+
+        }
+        
+        return freq ;
+    }*/
+
+
+
     public static boolean containsTheSameElements(int [] array1,int [] array2) {
-        // Write your code here:
-        return false;
+
+        boolean[] inArray1 = new boolean[10];
+        boolean[] inArray2 = new boolean[10];
+
+        for (int i = 0; i < array1.length; i++) {
+            int num = array1[i];
+            if (num >= 0 && num < 10) {
+                inArray1[num] = true;
+            }
+        }
+
+        for (int i = 0; i < array2.length; i++) {
+            int num = array2[i];
+            if (num >= 0 && num < 10) {
+               inArray2[num] = true;
+            }
+        }
+
+        for (int i = 0; i < 10; i++) {
+            if (inArray1[i] != inArray2[i]) {
+                return false;
+            }
+        }
+
+        return true;
+       
+        
     }
 
     public static boolean isSorted(int [] array) {
