@@ -22,7 +22,7 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-      String string = "vOwEls ArE fUn"; 
+      String string = "vowels are fun"; 
        System.out.println(capVowelsLowRest(string)) ; 
     }
 
@@ -44,7 +44,7 @@ public class StringOps {
         if(string.charAt(i) > 65 && string.charAt(i) <= 91 && string.charAt(i) != 69 && string.charAt(i) != 73 && string.charAt(i) != 79 && string.charAt(i) != 85 ){
 
             newStr = newStr + (char) (string.charAt(i) + 32) ;
-        }else if (string.charAt(i) != 97 && string.charAt(i) != 101 && string.charAt(i) != 105 && string.charAt(i) != 111 && string.charAt(i) != 107){
+        }else if (string.charAt(i) != 97 && string.charAt(i) != 101 && string.charAt(i) != 105 && string.charAt(i) != 111 && string.charAt(i) != 117){
             newStr = newStr + string.charAt(i) ;
         }
         }
