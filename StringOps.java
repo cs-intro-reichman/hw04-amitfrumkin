@@ -22,8 +22,9 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-      String string = "vowels are fun"; 
-       System.out.println(capVowelsLowRest(string)) ; 
+      String string = " tWo wordS"; 
+       /* System.out.println(capVowelsLowRest(string)) ; */
+       System.out.println(camelCase(string)) ; 
     }
 
     public static String capVowelsLowRest (String string) {
@@ -53,8 +54,46 @@ public class StringOps {
     } 
 
     public static String camelCase (String string) {
-        // Write your code here:
-        return "";
+
+        String firstUpper = "" ;
+
+        for(int i = 0 ; i < string.length() ; i++){
+            if (string.charAt(i) == 32 && string.charAt(i+1) >= 97 && string.charAt(i+1) <= 122 ){
+                firstUpper = firstUpper + (char)(string.charAt(i+1) - 32);
+                i++;
+            }else if (string.charAt(i) >= 65 && string.charAt(i) <= 90 ){
+                firstUpper = firstUpper +  (char)(string.charAt(i) +32 ) ;   
+            }else{
+                firstUpper = firstUpper +  string.charAt(i) ; 
+            }
+        }
+         String noSpaces = "";
+
+         for(int i = 0 ; i < firstUpper.length() ; i++){
+            if (firstUpper.charAt(i) != 32){
+                noSpaces = noSpaces + firstUpper.charAt(i);
+
+            }
+         }
+       String firstLetter= "" ;
+
+        if (noSpaces.charAt(0) >= 65 && noSpaces.charAt(0) <= 90){
+
+            firstLetter = firstLetter + (char) (noSpaces.charAt(0) + 32 );
+        }else {
+
+            firstLetter = firstLetter + (char) (noSpaces.charAt(0));
+        }
+
+        String camelCase = firstLetter; 
+
+        for(int i = 1 ; i < noSpaces.length() ; i++){
+
+            camelCase = camelCase + noSpaces.charAt(i);
+
+        }
+        
+        return camelCase;
     }
 
     public static int[] allIndexOf (String string, char chr) {
