@@ -22,7 +22,7 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-      String string = " tWo wordS"; 
+      String string = "Hello World"; 
        /* System.out.println(capVowelsLowRest(string)) ; */
        System.out.println(camelCase(string)) ; 
     }
@@ -55,16 +55,24 @@ public class StringOps {
 
     public static String camelCase (String string) {
 
+        String upToLow = "" ; 
+         for(int i = 0 ; i < string.length() ; i++){
+            if ( string.charAt(i) >= 65 && string.charAt(i) <= 90 ){
+                upToLow = upToLow +  (char)(string.charAt(i) +32 ) ;
+            }else{
+                upToLow = upToLow + string.charAt(i) ; 
+            }
+         }
+
         String firstUpper = "" ;
 
-        for(int i = 0 ; i < string.length() ; i++){
-            if (string.charAt(i) == 32 && string.charAt(i+1) >= 97 && string.charAt(i+1) <= 122 ){
-                firstUpper = firstUpper + (char)(string.charAt(i+1) - 32);
-                i++;
-            }else if (string.charAt(i) >= 65 && string.charAt(i) <= 90 ){
-                firstUpper = firstUpper +  (char)(string.charAt(i) +32 ) ;   
+        for(int i = 0 ; i < upToLow.length() ; i++){
+
+            if (upToLow.charAt(i) == 32 && upToLow.charAt(i+1) >= 97 && upToLow.charAt(i+1) <= 122 ){
+                firstUpper = firstUpper + (char)(upToLow.charAt(i+1) - 32);
+                i++;  
             }else{
-                firstUpper = firstUpper +  string.charAt(i) ; 
+                firstUpper = firstUpper +  upToLow.charAt(i) ; 
             }
         }
          String noSpaces = "";
