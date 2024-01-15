@@ -23,8 +23,10 @@ public class StringOps {
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
       String string = "Hello World"; 
+      char chr = 'l' ;
        /* System.out.println(capVowelsLowRest(string)) ; */
-       System.out.println(camelCase(string)) ; 
+       println(allIndexOf(string,chr)) ; 
+       
     }
 
     public static String capVowelsLowRest (String string) {
@@ -45,7 +47,9 @@ public class StringOps {
         if(string.charAt(i) > 65 && string.charAt(i) <= 91 && string.charAt(i) != 69 && string.charAt(i) != 73 && string.charAt(i) != 79 && string.charAt(i) != 85 ){
 
             newStr = newStr + (char) (string.charAt(i) + 32) ;
+
         }else if (string.charAt(i) != 97 && string.charAt(i) != 101 && string.charAt(i) != 105 && string.charAt(i) != 111 && string.charAt(i) != 117){
+
             newStr = newStr + string.charAt(i) ;
         }
         }
@@ -105,7 +109,41 @@ public class StringOps {
     }
 
     public static int[] allIndexOf (String string, char chr) {
-        // Write your code here:
-        return new int[1];
+
+        int charCounter = 0;
+
+        for(int i = 0 ; i < string.length() ; i++){
+
+          if(string.charAt(i) == chr ){
+
+            charCounter++ ;
+          }
+
+        }
+        
+        int [] chars = new int [charCounter];
+
+        int counter = 0 ; 
+
+        for(int i = 0 ; i < string.length() ; i++){
+
+            if(string.charAt(i) == chr){
+
+                chars[counter++]= i;
+                
+            }    
+
+        }
+        
+        return chars;
     }
+
+    public static void println(int[] arr) {
+
+		for (int i = 0; i < arr.length; i++) {
+
+			System.out.print(arr[i] + " ");
+		}
+		System.out.println();
+	}
 }
